@@ -1,15 +1,16 @@
 #include"matrix.h"
 
 int main(){
-    Matrix a(3,1,{1,2,3});
-    Matrix b = a.transpose(); 
+    Matrix a(3,1,{1,2,3.5});
+    Matrix b = a.transpose();
+    Matrix c = a*b; 
+    Matrix d = a.elementwiseMultiplication(b.T());
+    
     a.print();
     b.print();
-    Matrix c = b*a;
     c.print();
-    a.print();
-    Matrix f = 15*a;
-    f.print(); 
+    d.print();
+
     
     return 0;
 } 

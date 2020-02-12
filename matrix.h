@@ -20,6 +20,7 @@ class Matrix{
         double& operator()(int i, int j);
         double  operator()(int i, int j)const;
         Matrix transpose() const;
+        Matrix elementwiseMultiplication(const Matrix&);
         Matrix T() const ;
         //Debug
         void print();
@@ -34,4 +35,6 @@ class Matrix{
 Matrix operator* (const Matrix&, double);
 Matrix operator* (double, const Matrix&);
 Matrix operator* (const Matrix&, const Matrix&);
+
+
 #endif // _MATRIX_MATRIX_H_

@@ -62,6 +62,20 @@ Matrix Matrix::transpose()const{
 Matrix Matrix::T()const{
     return (*this).transpose();
 }
+
+Matrix Matrix::elementwiseMultiplication(const Matrix& a){
+   if(a.getCol() != col_ || a.getRow() != row_){
+       throw std::invalid_argument("Bad dimension !!!");
+   }
+   Matrix matrix(row_,col_);
+   for(int i = 0 ; i < row_;i++){
+       for(int j =0 ; j < col_;j++){
+           matrix(i,j) = a(i,j)*(*this)(i,j);
+       }
+   }
+   return matrix ;
+}
+
 Matrix operator* (const Matrix& a, double b){
     Matrix matrix(a.getRow(),a.getCol());
     for(int i = 0; i < a.getRow();i++){
@@ -89,7 +103,7 @@ Matrix operator* (const Matrix& a, const Matrix& b){
     }
     return matrix;
 }
-// Debug 
+// print out  
 void Matrix:: print(){
     for(int i = 0 ; i < row_ ; i++){
         std:: cout<< "[";
@@ -98,4 +112,5 @@ void Matrix:: print(){
         }
         std::cout <<"]"<< std::endl;
     }
+    std::cout << std::endl;
 }
