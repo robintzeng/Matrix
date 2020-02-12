@@ -8,8 +8,8 @@ int main(){
     Matrix c = b*a;
     c.print();
     a.print();
-    //Matrix f = 15*a;
-    //f.print(); 
+    Matrix f = 15*a;
+    f.print(); 
 
     return 0;
 } 

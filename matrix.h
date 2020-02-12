@@ -2,13 +2,14 @@
 #define __MATRIX_H__
 
 #include<vector>
-
 class Matrix{
     public:
         // Create empty matrix
         Matrix(int rows,int columns);
-        //initialize with list 
+        //initialize with 1D vector
         Matrix(int rows, int columns,std::vector<double>list);
+        // initialize with 2D vector 
+        Matrix(int rows, int columns,std::vector<std::vector<double>>list);
         //Copy Contructor
         Matrix(const Matrix& matrix);
         ~Matrix();
@@ -19,7 +20,7 @@ class Matrix{
         double& operator()(int i, int j);
         double  operator()(int i, int j)const;
         Matrix transpose() const;
-
+        Matrix T() const ;
         //Debug
         void print();
 
@@ -33,6 +34,4 @@ class Matrix{
 Matrix operator* (const Matrix&, double);
 Matrix operator* (double, const Matrix&);
 Matrix operator* (const Matrix&, const Matrix&);
-
-
 #endif // _MATRIX_MATRIX_H_

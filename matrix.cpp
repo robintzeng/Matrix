@@ -18,6 +18,11 @@ Matrix::Matrix(int rows, int columns, std::vector<double> list){
         buffer.push_back({begin+r*col_,begin+(r+1)*col_});
     }
 }
+Matrix::Matrix(int rows, int columns, std::vector<std::vector<double>> list){
+    row_ = list.size();
+    col_ = list[0].size();
+    buffer = list;
+}
 // Copy Constructor
 Matrix :: Matrix(const Matrix& matrix){
     row_ = matrix.row_;
@@ -53,6 +58,9 @@ Matrix Matrix::transpose()const{
         for(int j = 0 ; j < row_;j++)
             matrix.buffer[i][j] = buffer[j][i];
     return matrix;
+}
+Matrix Matrix::T()const{
+    return (*this).transpose();
 }
 Matrix operator* (const Matrix& a, double b){
     Matrix matrix(a.getRow(),a.getCol());
