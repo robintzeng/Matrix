@@ -3,32 +3,73 @@ A matrix class written in C++11. The matrix class contain some basic operator su
 # Constructors
 ```C++
 #include"matrix.h"
-a = Matrix(3,3); // Create a 3X3 zero matrix 
-b = Matrix(3,3,{1,2,3,4,5,6,7,8,9});
-// Create a 3X3 matrix with 1D vector
-/// {{1 2 3},
-///  {4 5 6},
-///  {7,8,9}}
-c = Matrix(2,1,{{1},{2}}); 
-// Create a 2X1 matrix with 2D vecotr
-/// {{1}
-//   {2}} 
+//Create by 1D vector
+Matrix<float> a(3,1,{1.1,2.5,3.0}); 
+// [1.1]
+// [2.5]
+// [3.0]
 
-d = Matrix(c);// Create a matrix which is the same as c
+// Create by 2D vector
+Matrix<int> b({{1,2},{3,4}}); 
+// [1 2]
+// [3 4]
+
+// Create an empty vector
+Matrix<double> c(4,4);
+// [0 0 0 0]
+// [0 0 0 0]
+// [0 0 0 0]
+// [0 0 0 0]
 ```
-# Operators
+# Function 
+## Transpose
+``` C++
+// Transpose 
+Matrix<float> d = a.transpose();
+// [1.1 2.5 3] 
+```
+## Elementwise Multiplication
 ```C++
-// element access
-val = a(1,3);
-// tranpose // both of them can do the same thing
-b = a.transpose();
-b = a.T();
-// multiplication
-c = a*b;
-// elementwise mutiplication
-c = a.elementwiseMultiplication(b);
+//Elementwise Multiplication
+Matrix<float> e = a.elementwiseMultiplication(d.transpose());
+// [1.21]
+// [6.25]
+// [9]
 ```
-# Print out the matrix
+
+# Operator
+## Type Casting 
 ```C++
-c.print();
+// Type Casting  
+Matrix<int> f = e;
+// [1]
+// [6]
+// [9]
+
+a = Matrix<int>(a);
+// [1]
+// [2]
+// [3]
 ```
+## Mutiplication
+```C++
+// The type of a is Matrix<int>
+// The type of d is Matrix<float>
+// The mutiplication will auto cast into the type of g which is Matrix<float>
+
+Matrix<float> g = a*d;
+// [1.1 2.5 3.0]
+// [2.2 5.0 6.0]
+// [3.3 7.5 9.0]
+Matrix<int>   h = a*d;
+// [1 2 3]
+// [2 5 6]
+// [3 7 9]
+Matrix<float> i = d*a;
+// [15.1]
+Matrix<int>   j = d*a;
+// [15]
+
+```
+
+

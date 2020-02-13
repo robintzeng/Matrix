@@ -12,7 +12,7 @@ class Matrix{
         //Initialize with 1D vector
         Matrix(int rows, int columns,std::vector<U>list);
         // Initialize with 2D vector 
-        Matrix(int rows, int columns,std::vector<std::vector<U>>list);
+        Matrix(std::vector<std::vector<U>>list);
         //Copy Contructor
         Matrix(const Matrix& matrix);
         // Destructor
@@ -74,7 +74,7 @@ Matrix<U>::Matrix(int rows, int columns, std::vector<U> list){
 
 // Initialize with 2D vector
 template<class U>
-Matrix<U>::Matrix(int rows, int columns, std::vector<std::vector<U>> list){
+Matrix<U>::Matrix(std::vector<std::vector<U>> list){
     row_ = list.size();
     col_ = list[0].size();
     buffer = list;
@@ -147,13 +147,14 @@ Matrix<U> operator* (const Matrix<U>& a, const Matrix<U>& b){
     }
     return matrix;
 }
+
 // Matrix Type Casting Operator
 template<typename U> 
-template<typename T> Matrix<U>::operator Matrix<T>() const
+template<typename T> Matrix<U>:: operator Matrix<T>() const
 {
     std::vector<std::vector<T>> vecT;
     for(auto&& b: buffer) vecT.emplace_back(std::begin(b), std::end(b));
-    return Matrix<T>(col_, row_, vecT);
+    return Matrix<T>(vecT);
 }
 
 // === Functions ===
