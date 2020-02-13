@@ -1,5 +1,9 @@
 # Matrix
 A matrix class written in C++11. The matrix class contain some basic operator such as transpose,mutiplication and element access.
+# Compile Source File
+```
+g++ main.cpp -std=c++11
+```
 # Constructors
 ```C++
 #include"matrix.h"
