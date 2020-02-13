@@ -12,7 +12,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "-g","-std=c++11", "matrix.cpp","main.cpp","-o","${fileBasenameNoExtension}.out", "&&", "clear" , "&&" , "./${fileBasenameNoExtension}.out"
+                "-g","-std=c++11","main.cpp","-o","${fileBasenameNoExtension}.out", "&&", "clear" , "&&" , "./${fileBasenameNoExtension}.out"
             ],
             "group": {
                 "kind": "build",
