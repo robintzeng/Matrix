@@ -2,6 +2,7 @@
 #define __MATRIX_H__
 #include<vector>
 #include<iostream>
+#include <stdexcept>
 template<class U>
 class Matrix{
     public:
