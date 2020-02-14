@@ -45,8 +45,12 @@ class Matrix{
 };
 
 // Multiplication Operators
+
+// Matrix * Constant Number
 template<class U>Matrix<U> operator* (const Matrix<U>&, U);
+// Constant Number * Matrix
 template<class U>Matrix<U> operator* (U, const Matrix<U>&);
+// Matrix * Matrix
 template<class U>Matrix<U> operator* (const Matrix<U>&, const Matrix<U>&);
 
 
@@ -114,6 +118,7 @@ U Matrix<U>::operator()(int i, int j)const{
 }
 
 // Multiplication Operator
+// Matrix * Constant Number
 template<class U>
 Matrix<U> operator* (const Matrix<U>& a, U b){
     Matrix<U> matrix(a.getRow(),a.getCol());
@@ -126,12 +131,14 @@ Matrix<U> operator* (const Matrix<U>& a, U b){
 }
 
 // Multiplication Operator
+// Constant Number * Matrix  
 template<class U>
 Matrix<U> operator* (U a, const Matrix<U>& b){
     return b*a ;
 }
 
 // Multiplication Operator
+// Matrix*Matrix
 template<class U>
 Matrix<U> operator* (const Matrix<U>& a, const Matrix<U>& b){
     if(a.getCol() != b.getRow()){
